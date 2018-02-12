@@ -55,11 +55,18 @@ sumArray(numbers);
 // Calculate the Average
 var numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbersAvg, sumArray){
-  var avg = sumArray(numbersAvg) / numbersAvg.length;
-  return avg;
-}
-averageNumbers(numbersAvg,sumArray);
+function averageNumbers(arr){
+  if(arr.length === 0){
+    return undefined;
+  } 
+   var sum = 0;
+    arr.forEach(function(elem){
+    sum += elem;
+    });
+      return sum / arr.length;
+     }
+     
+averageNumbers(numbersAvg);
 
 
 // Array of Strings
@@ -77,6 +84,9 @@ var wordsArr = [
 ];
 
 function averageWordLength(wordsArr){
+  if(wordsArr.length === 0){
+    return undefined;
+  } 
   var sumTotal=0;
   for(var i = 0; i < wordsArr.length; i++){
       sumTotal += wordsArr[i].length;
@@ -103,10 +113,24 @@ var wordsUnique = [
   'simple',
   'bring'
 ];
-function uniquifyArray(words){
-  
+function uniquifyArray(arr){ 
+  if(arr.length === 0){
+    return undefined;
+  }
+  var newArr = [];
+  arr.forEach(function(elem){
+    var find = false;
+    newArr.forEach(function(newElem){
+      if (elem.indexOf(newElem) === 0){
+        find = true;
+    }
+  });
+  if(!find) {
+    newArr.push(elem);
 }
-/**Stoped Here*/
+});
+return newArr;
+}
 
 
 // Finding Elements
@@ -120,6 +144,19 @@ var wordsFind = [
   'truth',
   'disobedience'
 ];
+function doesWordExist(word){
+  if(word.length === 0){
+    return false;
+  }
+  if(word.indexOf(word) >= 0){
+      return true;
+  }else
+  return false;
+
+}
+doesWordExist(wordsFind);
+
+
 
 // Counting Repetion
 var wordsCount = [
@@ -135,6 +172,23 @@ var wordsCount = [
   'disobedience',
   'matter'
 ];
+function howManyTimes(words,start) {
+  if(words.length === 0){
+    return false;
+  }
+  var count;
+  words.forEach(function(elem){
+   var text = words.join().split(start);
+   count = text.length;
+   });
+   return count - 1;
+  }
+
+
+//returns one when the word appears only one time on the array
+//returns zero when the word does not appears on the array
+//returns five when the word appears 5 times on the array
+
 // Bonus Quest
 
 var matrix = [
